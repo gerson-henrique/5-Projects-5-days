@@ -22,7 +22,7 @@ const App = () => {
   const handleAddTask = (task:string) => {
     let newList = [...list]
     newList.push({
-      id: list.length + 1,
+      id: list[list.length].id + 1,
       name: task,
       done: false,
     });
