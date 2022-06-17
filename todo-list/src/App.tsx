@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import * as E from './App.styles'
+import { AddArea } from './components/AddArea';
 import { ListItem } from './components/ListItem';
 import { Item } from './types/item';
 
@@ -17,10 +18,20 @@ const App = () => {
       done: true,
     }
   ]);
+
+  const handleAddTask = (task:string) => {
+    let newList = [...list]
+    newList.push({
+      id: 123,
+      name: '',
+      done: false,
+    })
+  }
 return (
   <E.Container>
     <E.WorkArea>
       <E.Header>Lista de Tarefas</E.Header>
+      <AddArea/>
       {list.map((item,idx) => (<ListItem item={item} key={idx} />))}
     </E.WorkArea>
   </E.Container>
