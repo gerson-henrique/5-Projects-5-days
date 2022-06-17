@@ -22,16 +22,17 @@ const App = () => {
   const handleAddTask = (task:string) => {
     let newList = [...list]
     newList.push({
-      id: 123,
-      name: '',
+      id: list.length + 1,
+      name: task,
       done: false,
-    })
+    });
+    setList(newList)
   }
 return (
   <E.Container>
     <E.WorkArea>
       <E.Header>Lista de Tarefas</E.Header>
-      <AddArea/>
+      <AddArea onEnter={handleAddTask}/>
       {list.map((item,idx) => (<ListItem item={item} key={idx} />))}
     </E.WorkArea>
   </E.Container>
