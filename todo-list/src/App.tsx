@@ -28,12 +28,25 @@ const App = () => {
     });
     setList(newList)
   }
+
+  const handleDone = (id: number) => {
+    const [doneElement] = list.filter((e)=> e.id === id)
+    let newList = [...list]
+    newList[id] = {
+      id: doneElement.id,
+      name: doneElement.name,
+      done: !doneElement.done,
+
+
+    } 
+    setList(newList)
+  }
 return (
   <E.Container>
     <E.WorkArea>
       <E.Header>Lista de Tarefas</E.Header>
       <AddArea onEnter={handleAddTask}/>
-      {list.map((item,idx) => (<ListItem item={item} key={idx} />))}
+      {list.map((item,idx) => (<ListItem item={item} key={idx} onSelected={handleDone} />))}
     </E.WorkArea>
   </E.Container>
 )

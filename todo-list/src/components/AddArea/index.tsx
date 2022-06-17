@@ -1,4 +1,3 @@
-import { type } from '@testing-library/user-event/dist/type'
 import { useState, KeyboardEvent } from 'react'
 import * as E from './styles'
 
@@ -9,8 +8,9 @@ type Props = {
 export const AddArea = ({onEnter}: Props) => {
   const [inputText, setInputText] = useState('')
   const handleKeyUp = (e: KeyboardEvent) => {
-    if(e.code === 'enter' && inputText !== '') {
+    if(e.code === 'Enter' && inputText !== '') {
       onEnter(inputText)
+      setInputText('')
     }
   }
   return (
